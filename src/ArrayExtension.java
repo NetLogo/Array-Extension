@@ -123,7 +123,7 @@ public class ArrayExtension
     StringBuilder buffer = new StringBuilder();
     for (LogoArray array : arrays.keySet()) {
       buffer.append
-          (Dump.csv.encode
+          (Dump.csv().encode
               (Dump.extensionObject(array, true, true, false)) + "\n");
     }
     return buffer;
