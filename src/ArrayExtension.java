@@ -178,9 +178,9 @@ public class ArrayExtension
   public static class Item extends DefaultReporter {
     public Syntax getSyntax() {
       return Syntax.reporterSyntax
-          (new int[]{Syntax.TYPE_WILDCARD,
-              Syntax.TYPE_NUMBER},
-              Syntax.TYPE_WILDCARD);
+          (new int[]{Syntax.WildcardType(),
+              Syntax.NumberType()},
+              Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
@@ -208,9 +208,9 @@ public class ArrayExtension
   public static class Set extends DefaultCommand {
     public Syntax getSyntax() {
       return Syntax.commandSyntax
-          (new int[]{Syntax.TYPE_WILDCARD,
-              Syntax.TYPE_NUMBER,
-              Syntax.TYPE_WILDCARD});
+          (new int[]{Syntax.WildcardType(),
+              Syntax.NumberType(),
+              Syntax.WildcardType()});
     }
 
     public String getAgentClassString() {
@@ -238,8 +238,8 @@ public class ArrayExtension
   public static class Length extends DefaultReporter {
     public Syntax getSyntax() {
       return Syntax.reporterSyntax
-          (new int[]{Syntax.TYPE_WILDCARD},
-              Syntax.TYPE_NUMBER);
+          (new int[]{Syntax.WildcardType()},
+              Syntax.NumberType());
     }
 
     public String getAgentClassString() {
@@ -260,8 +260,8 @@ public class ArrayExtension
   public static class ToList extends DefaultReporter {
     public Syntax getSyntax() {
       return Syntax.reporterSyntax
-          (new int[]{Syntax.TYPE_WILDCARD},
-              Syntax.TYPE_LIST);
+          (new int[]{Syntax.WildcardType()},
+              Syntax.ListType());
     }
 
     public String getAgentClassString() {
@@ -282,8 +282,8 @@ public class ArrayExtension
   public static class FromList extends DefaultReporter {
     public Syntax getSyntax() {
       return Syntax.reporterSyntax
-          (new int[]{Syntax.TYPE_LIST},
-              Syntax.TYPE_WILDCARD);
+          (new int[]{Syntax.ListType()},
+              Syntax.WildcardType());
     }
 
     public String getAgentClassString() {
