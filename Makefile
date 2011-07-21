@@ -6,15 +6,12 @@ ifeq ($(origin NETLOGO), undefined)
   NETLOGO=../..
 endif
 
-ifeq ($(origin SCALA_JAR), undefined)
-  SCALA_JAR=$(NETLOGO)/lib/scala-library.jar
-endif
-
+JAVAC=$(JAVA_HOME)/bin/javac
 SRCS=$(wildcard src/*.java)
 
-array.jar: $(SRCS) manifest.txt
+array.jar: $(SRCS) manifest.txt Makefile
 	mkdir -p classes
-	$(JAVA_HOME)/bin/javac -g -encoding us-ascii -source 1.5 -target 1.5 -classpath $(NETLOGO)/NetLogo.jar:$(SCALA_JAR) -d classes $(SRCS)
+	$(JAVAC) -g -deprecation -Xlint:all -Xlint:-serial -Xlint:-path -encoding us-ascii -source 1.5 -target 1.5 -classpath $(NETLOGO)/NetLogoLite.jar -d classes $(SRCS)
 	jar cmf manifest.txt array.jar -C classes .
 
 array.zip: array.jar
