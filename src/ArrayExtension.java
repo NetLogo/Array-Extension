@@ -1,7 +1,3 @@
-// (c) 2007-2011 Uri Wilensky. See README.txt for terms of use.
-
-// This NetLogo extension provides an array data type.
-
 package org.nlogo.extensions.array;
 
 import org.nlogo.api.CompilerException;
