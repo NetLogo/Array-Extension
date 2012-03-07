@@ -6,7 +6,14 @@ ifeq ($(origin NETLOGO), undefined)
   NETLOGO=../..
 endif
 
-JAVAC=$(JAVA_HOME)/bin/javac
+ifeq (,$(findstring Cygwin,$(shell uname)))
+  COLON=\;
+  JAVA_HOME := `cygpath -up "$(JAVA_HOME)"`
+else
+  COLON=:
+endif
+
+JAVAC:=$(JAVA_HOME)/bin/javac
 SRCS=$(wildcard src/*.java)
 
 array.jar: $(SRCS) manifest.txt Makefile
