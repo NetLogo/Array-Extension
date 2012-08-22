@@ -142,6 +142,8 @@ public class ArrayExtension
   public void load(org.nlogo.api.PrimitiveManager primManager) {
     primManager.addPrimitive("item", new Item());
     primManager.addPrimitive("set", new Set());
+	primManager.addPrimitive("add", new Add());
+	primManager.addPrimitive("insert", new Insert());
     primManager.addPrimitive("length", new Length());
     primManager.addPrimitive("to-list", new ToList());
     primManager.addPrimitive("from-list", new FromList());
@@ -230,6 +232,60 @@ public class ArrayExtension
       array.set(index, args[2].get());
     }
   }
+  
+  public static class Add extends DefaultCommand {
+		public Syntax getSyntax() {
+			return Syntax.commandSyntax
+					(new int[]{Syntax.WildcardType(),
+							Syntax.WildcardType()});
+		}
+
+		public String getAgentClassString() {
+			return "OTPL";
+		}
+
+		public void perform(Argument args[], Context context)
+				throws ExtensionException, LogoException {
+			Object arg0 = args[0].get();
+			if (!(arg0 instanceof LogoArray)) {
+				throw new org.nlogo.api.ExtensionException
+				("not an array: " + Dump.logoObject(arg0));
+			}
+			LogoArray array = (LogoArray) arg0;
+			array.add(args[1].get());
+		}
+	}
+
+	public static class Insert extends DefaultCommand {
+		public Syntax getSyntax() {
+			return Syntax.commandSyntax
+					(new int[]{Syntax.WildcardType(),
+							Syntax.NumberType(),
+							Syntax.WildcardType()});
+		}
+
+		public String getAgentClassString() {
+			return "OTPL";
+		}
+
+		public void perform(Argument args[], Context context)
+				throws ExtensionException, LogoException {
+			Object arg0 = args[0].get();
+			if (!(arg0 instanceof LogoArray)) {
+				throw new org.nlogo.api.ExtensionException
+				("not an array: " + Dump.logoObject(arg0));
+			}
+			LogoArray array = (LogoArray) arg0;
+			int index = args[1].getIntValue();
+			if (index < 0 || index > array.size()) {
+				throw new org.nlogo.api.ExtensionException
+				(index + " is not a valid index for insertion into an array of length "
+						+ array.size());
+			}
+			array.add(index, args[2].get());
+		}
+	}
+
 
   public static class Length extends DefaultReporter {
     public Syntax getSyntax() {
