@@ -67,7 +67,7 @@ public class ArrayExtension
       }
       if (!(reference && exporting)) {
         boolean first = true;
-        for (Iterator it = iterator(); it.hasNext();) {
+        for (Iterator<Object> it = iterator(); it.hasNext();) {
           if (!first) {
             buf.append(" ");
           }
@@ -98,8 +98,8 @@ public class ArrayExtension
       if (size() != otherArray.size()) {
         return false;
       }
-      Iterator iter1 = iterator();
-      Iterator iter2 = otherArray.iterator();
+      Iterator<Object> iter1 = iterator();
+      Iterator<Object> iter2 = otherArray.iterator();
       while (iter1.hasNext()) {
         if (!org.nlogo.api.Equality.equals
             (iter1.next(), iter2.next())) {
