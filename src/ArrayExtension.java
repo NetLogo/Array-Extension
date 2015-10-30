@@ -1,13 +1,14 @@
 package org.nlogo.extensions.array;
 
-import org.nlogo.api.CompilerException;
+import org.nlogo.core.CompilerException;
+import org.nlogo.core.Syntax;
+import org.nlogo.core.SyntaxJ;
+import org.nlogo.core.LogoList;
 import org.nlogo.api.LogoException;
 import org.nlogo.api.ExtensionException;
 import org.nlogo.api.Argument;
-import org.nlogo.api.Syntax;
 import org.nlogo.api.Dump;
 import org.nlogo.api.Context;
-import org.nlogo.api.LogoList;
 import org.nlogo.api.DefaultReporter;
 import org.nlogo.api.DefaultCommand;
 
@@ -26,7 +27,7 @@ public class ArrayExtension
       extends java.util.ArrayList<Object>
       // new NetLogo data types defined by extensions must implement
       // this interface
-      implements org.nlogo.api.ExtensionObject {
+      implements org.nlogo.core.ExtensionObject {
     private final long id;
 
     LogoArray(long id) {
@@ -150,14 +151,14 @@ public class ArrayExtension
   ///
 
 
-  public org.nlogo.api.ExtensionObject readExtensionObject(org.nlogo.api.ExtensionManager reader,
+  public org.nlogo.core.ExtensionObject readExtensionObject(org.nlogo.api.ExtensionManager reader,
                                                            String typeName, String value)
       throws org.nlogo.api.ExtensionException, CompilerException {
     String[] s = value.split(":");
     long id = Long.parseLong(s[0]);
     LogoArray array = getOrCreateArrayFromId(id);
     if (s.length > 1) {
-      array.addAll((LogoList) reader.readFromString("[ " + s[1] + " ]"));
+      array.addAll(((LogoList) reader.readFromString("[ " + s[1] + " ]")).toJava());
     }
     return array;
   }
@@ -173,7 +174,7 @@ public class ArrayExtension
 
   public static class Item extends DefaultReporter {
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax
+      return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType(),
               Syntax.NumberType()},
               Syntax.WildcardType());
@@ -233,7 +234,7 @@ public class ArrayExtension
 
   public static class Length extends DefaultReporter {
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax
+      return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType()},
               Syntax.NumberType());
     }
@@ -255,7 +256,7 @@ public class ArrayExtension
 
   public static class ToList extends DefaultReporter {
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax
+      return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType()},
               Syntax.ListType());
     }
@@ -277,7 +278,7 @@ public class ArrayExtension
 
   public static class FromList extends DefaultReporter {
     public Syntax getSyntax() {
-      return Syntax.reporterSyntax
+      return SyntaxJ.reporterSyntax
           (new int[]{Syntax.ListType()},
               Syntax.WildcardType());
     }
@@ -288,7 +289,7 @@ public class ArrayExtension
 
     public Object report(Argument args[], Context context)
         throws ExtensionException, LogoException {
-      return new LogoArray(args[0].getList());
+      return new LogoArray(args[0].getList().toJava());
     }
   }
 
