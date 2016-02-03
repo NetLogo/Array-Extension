@@ -9,8 +9,8 @@ import org.nlogo.api.ExtensionException;
 import org.nlogo.api.Argument;
 import org.nlogo.api.Dump;
 import org.nlogo.api.Context;
-import org.nlogo.api.DefaultReporter;
-import org.nlogo.api.DefaultCommand;
+import org.nlogo.api.Reporter;
+import org.nlogo.api.Command;
 
 import java.util.Iterator;
 
@@ -172,7 +172,7 @@ public class ArrayExtension
     return new LogoArray(id);
   }
 
-  public static class Item extends DefaultReporter {
+  public static class Item implements Reporter {
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType(),
@@ -202,7 +202,7 @@ public class ArrayExtension
     }
   }
 
-  public static class Set extends DefaultCommand {
+  public static class Set implements Command {
     public Syntax getSyntax() {
       return Syntax.commandSyntax
           (new int[]{Syntax.WildcardType(),
@@ -232,7 +232,7 @@ public class ArrayExtension
     }
   }
 
-  public static class Length extends DefaultReporter {
+  public static class Length implements Reporter {
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType()},
@@ -254,7 +254,7 @@ public class ArrayExtension
     }
   }
 
-  public static class ToList extends DefaultReporter {
+  public static class ToList implements Reporter {
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax
           (new int[]{Syntax.WildcardType()},
@@ -276,7 +276,7 @@ public class ArrayExtension
     }
   }
 
-  public static class FromList extends DefaultReporter {
+  public static class FromList implements Reporter {
     public Syntax getSyntax() {
       return SyntaxJ.reporterSyntax
           (new int[]{Syntax.ListType()},
