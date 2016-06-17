@@ -204,7 +204,7 @@ public class ArrayExtension
 
   public static class Set implements Command {
     public Syntax getSyntax() {
-      return Syntax.commandSyntax
+      return SyntaxJ.commandSyntax
           (new int[]{Syntax.WildcardType(),
               Syntax.NumberType(),
               Syntax.WildcardType()});
