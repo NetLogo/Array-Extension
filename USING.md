@@ -1,14 +1,3 @@
-
-# NetLogo Array Extension
-
-## Building
-
-Use the netlogo.jar.url environment variable to tell sbt which NetLogo.jar to compile against (defaults to NetLogo 5.3). For example:
-
-    sbt -Dnetlogo.jar.url=file:///path/to/NetLogo/target/NetLogo.jar package
-
-If compilation succeeds, `array.jar` will be created.
-
 ## Using
 
 The array extension is pre-installed in NetLogo.
@@ -65,42 +54,3 @@ array:set a 3 50
 print a
 => {{array: 0 1 4 50 16}}
 ```
-
-## Primitives
-
-
-### `array:from-list`
-
-Reports a new array containing the same items in the same order as the input list.
-
-
-### `array:item`
-
-Reports the item in the given array with the given index (ranging from zero to the length of the array minus one).
-
-
-### `array:set`
-
-
-Sets the item in the given array with the given index (ranging from zero to the length of the array minus one) to the given value.
-
-Note that unlike the `replace-item` primitive for lists, a new array is not created.
-The given array is actually modified.
-
-
-
-### `array:length`
-
-Reports the length of the given array, that is, the number of items in the array.
-
-
-### `array:to-list`
-
-Reports a new list containing the same items in the same order as the given array.
-
-
-## Terms of Use
-
-[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-
-The NetLogo array extension is in the public domain.  To the extent possible under law, Uri Wilensky has waived all copyright and related or neighboring rights.
