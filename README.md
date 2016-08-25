@@ -68,6 +68,12 @@ print a
 
 ## Primitives
 
+[`array:from-list`](#arrayfrom-list)
+[`array:item`](#arrayitem)
+[`array:set`](#arrayset)
+[`array:length`](#arraylength)
+[`array:to-list`](#arrayto-list)
+
 
 ### `array:from-list`
 
