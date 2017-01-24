@@ -54,7 +54,7 @@ print a
 => {{array: 0 0 0 0 0}}
 print array:length a
 => 5
-foreach n-values 5 [ [i] -> i ] [ [i] -> array:set a i i * i ]
+foreach n-values 5 [ i -> i ] [ i -> array:set a i i * i ]
 print a
 => {{array: 0 1 4 9 16}}
 print array:item a 0
