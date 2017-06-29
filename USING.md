@@ -36,7 +36,7 @@ errors or get surprising results, so we suggest sticking with lists
 and strings unless you're certain you want and need mutability.
 
 ### Example use of Array Extension
-
+{{! prevent mustache escaping}}{{={| |}=}}
 ```NetLogo
 let a array:from-list n-values 5 [0]
 print a
