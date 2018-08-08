@@ -4,6 +4,8 @@ javaSource in Compile := baseDirectory.value / "src"
 
 name := "array"
 
+version := "1.1.0"
+
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
 
 netLogoTarget :=
