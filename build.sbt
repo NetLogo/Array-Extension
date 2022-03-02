@@ -1,18 +1,17 @@
-enablePlugins(org.nlogo.build.NetLogoExtension, org.nlogo.build.ExtensionDocumentationPlugin)
+import org.nlogo.build.{ ExtensionDocumentationPlugin, NetLogoExtension }
 
-javaSource in Compile := baseDirectory.value / "src"
+enablePlugins(NetLogoExtension)
+enablePlugins(ExtensionDocumentationPlugin)
 
-name := "array"
+scalaVersion := "2.12.12"
 
-version := "1.1.1"
+name       := "array"
+version    := "1.1.1"
+isSnapshot := true
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
+netLogoVersion      := "6.2.2"
 
-netLogoTarget :=
-  org.nlogo.build.NetLogoExtension.directoryTarget(baseDirectory.value)
-
-javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path",
-  "-encoding", "us-ascii")
-
-resolvers      += "netlogo" at "https://dl.cloudsmith.io/public/netlogo/netlogo/maven/"
-netLogoVersion := "6.2.0-d27b502"
+javaSource in Compile := baseDirectory.value / "src" / "main"
+scalaSource in Test   := baseDirectory.value / "src" / "test"
+javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path", "-encoding", "us-ascii")
