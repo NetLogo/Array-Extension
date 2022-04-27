@@ -1,9 +1,9 @@
 ArraysBug716a
   extensions [array]
   globals [glob1 glob2]
-  O> __mkdir "tmp/ImportWorld"
+  O> __mkdir "tmp/array"
   O> set glob1 array:from-list [1 2]
-  O> set glob2 (word "tmp/ImportWorld/test-file-" __nano-time ".csv")
+  O> set glob2 (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world glob2
   O> set glob1 0
   O> import-world glob2
@@ -13,9 +13,9 @@ ArraysBug716a
 ArraysBug716b
   extensions [array]
   globals [glob1 glob2]
-  O> __mkdir "tmp/ImportWorld"
+  O> __mkdir "tmp/array"
   O> set glob1 (list array:from-list [1 2] array:from-list [3 4])
-  O> set glob2 (word "tmp/ImportWorld/test-file-" __nano-time ".csv")
+  O> set glob2 (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world glob2
   O> set glob1 0
   O> import-world glob2

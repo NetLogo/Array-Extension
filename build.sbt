@@ -10,7 +10,7 @@ version    := "1.1.1"
 isSnapshot := true
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
-netLogoVersion      := "6.2.2"
+netLogoVersion      := "6.2.2-2f9fab6"
 
 javaSource in Compile := baseDirectory.value / "src" / "main"
 scalaSource in Test   := baseDirectory.value / "src" / "test"
