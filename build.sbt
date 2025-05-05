@@ -14,4 +14,4 @@ Compile / javaSource := baseDirectory.value / "src" / "main"
 javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path", "-encoding", "us-ascii", "--release", "11")
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
-netLogoVersion      := "7.0.0-internal1"
+netLogoVersion      := "7.0.0-internal1-df97144"
