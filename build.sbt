@@ -7,11 +7,11 @@ name       := "array"
 version    := "1.1.1"
 isSnapshot := true
 
-scalaVersion := "2.13.16"
+scalaVersion := "3.7.0"
 Test / scalaSource  := baseDirectory.value / "src" / "test"
 
 Compile / javaSource := baseDirectory.value / "src" / "main"
-javacOptions ++= Seq("-g", "-deprecation", "-Xlint:all", "-Xlint:-serial", "-Xlint:-path", "-encoding", "us-ascii", "--release", "11")
+javacOptions ++= Seq("-g", "-deprecation", "-encoding", "us-ascii", "--release", "11")
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
-netLogoVersion      := "7.0.0-internal1-df97144"
+netLogoVersion      := "7.0.0-beta1"
