@@ -1,8 +1,7 @@
 /classes
-/NetLogoLite.jar
-/array.jar
-/array.jar.pack.gz
-/array.zip
+/*.jar
+/*.pack.gz
+/*.zip
 /target
 /project/target
 /project/project
