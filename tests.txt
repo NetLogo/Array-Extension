@@ -2,6 +2,7 @@ ImportArray
   extensions [ array ]
   globals [ ar1 temp ]
   O> set ar1 array:from-list [ 1 2 3 4 "string" false ]
+  O> __mkdir "tmp/array"
   O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world temp
   O> set ar1 0
@@ -13,6 +14,7 @@ ImportArraysSameArray
   globals [ ar1 ar2 temp ]
   O> set ar1 array:from-list [ 1 2 3 ]
   O> set ar2 ar1
+  O> __mkdir "tmp/array"
   O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world temp
   O> set ar1 0
@@ -26,6 +28,7 @@ ImportArraysTwoArrays
   globals [ ar1 ar2 temp ]
   O> set ar1 array:from-list [ 1 2 3 ]
   O> set ar2 array:from-list [ 1 2 3 ]
+  O> __mkdir "tmp/array"
   O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world temp
   O> set ar1 0
@@ -38,18 +41,19 @@ ImportArraysTwoArrays
 ImportArrayInsideArray
   extensions [ array ]
   globals [ ar1 temp ]
-  O> set ar1 array:from-list [ array:from-list [ 5 ] ]
+  O> set ar1 array:from-list (list array:from-list [ 5 ])
+  O> __mkdir "tmp/array"
   O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world temp
   O> set ar1 0
   O> import-world temp
-  array:to-list array:item ar1 0 => [ 5 ]
+  array:to-list array:item ar1 0 => [5]
 
 ArraysBug716a
   extensions [array]
   globals [glob1 glob2]
-  O> __mkdir "tmp/array"
   O> set glob1 array:from-list [1 2]
+  O> __mkdir "tmp/array"
   O> set glob2 (word "tmp/array/test-file-" __nano-time ".csv")
   O> export-world glob2
   O> set glob1 0
@@ -60,9 +64,9 @@ ArraysBug716a
 ArraysBug716b
   extensions [array]
   globals [glob1 glob2]
-  O> __mkdir "tmp/array"
   O> set glob1 (list array:from-list [1 2] array:from-list [3 4])
   O> set glob2 (word "tmp/array/test-file-" __nano-time ".csv")
+  O> __mkdir "tmp/array"
   O> export-world glob2
   O> set glob1 0
   O> import-world glob2
