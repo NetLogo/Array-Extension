@@ -154,7 +154,7 @@ public class ArrayExtension
   public org.nlogo.core.ExtensionObject readExtensionObject(org.nlogo.api.ExtensionManager reader,
                                                            String typeName, String value)
       throws org.nlogo.api.ExtensionException, CompilerException {
-    String[] s = value.split(":");
+    String[] s = value.split(":", 2);
     long id = Long.parseLong(s[0]);
     LogoArray array = getOrCreateArrayFromId(id);
     if (s.length > 1) {
