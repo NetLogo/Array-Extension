@@ -1,3 +1,50 @@
+ImportArray
+  extensions [ array ]
+  globals [ ar1 temp ]
+  O> set ar1 array:from-list [ 1 2 3 4 "string" false ]
+  O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
+  O> export-world temp
+  O> set ar1 0
+  O> import-world temp
+  array:to-list ar1 => [1 2 3 4 "string" false]
+
+ImportArraysSameArray
+  extensions [ array ]
+  globals [ ar1 ar2 temp ]
+  O> set ar1 array:from-list [ 1 2 3 ]
+  O> set ar2 ar1
+  O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
+  O> export-world temp
+  O> set ar1 0
+  O> set ar2 0
+  O> import-world temp
+  O> array:set ar1 2 4
+  array:to-list ar2 => [1 2 4]
+
+ImportArraysTwoArrays
+  extensions [ array ]
+  globals [ ar1 ar2 temp ]
+  O> set ar1 array:from-list [ 1 2 3 ]
+  O> set ar2 array:from-list [ 1 2 3 ]
+  O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
+  O> export-world temp
+  O> set ar1 0
+  O> set ar2 0
+  O> import-world temp
+  O> array:set ar1 2 4
+  array:to-list ar1 => [1 2 4]
+  array:to-list ar2 => [1 2 3]
+
+ImportArrayInsideArray
+  extensions [ array ]
+  globals [ ar1 temp ]
+  O> set ar1 array:from-list [ array:from-list [ 5 ] ]
+  O> set temp (word "tmp/array/test-file-" __nano-time ".csv")
+  O> export-world temp
+  O> set ar1 0
+  O> import-world temp
+  array:to-list array:item ar1 0 => [ 5 ]
+
 ArraysBug716a
   extensions [array]
   globals [glob1 glob2]
