@@ -4,7 +4,7 @@ enablePlugins(NetLogoExtension)
 enablePlugins(ExtensionDocumentationPlugin)
 
 name       := "array"
-version    := "1.1.1"
+version    := "1.2.0"
 isSnapshot := true
 
 scalaVersion := "3.7.0"
