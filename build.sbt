@@ -15,3 +15,5 @@ javacOptions ++= Seq("-g", "-deprecation", "-encoding", "us-ascii", "--release",
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
 netLogoVersion      := "7.0.0-424b50b"
+
+resolvers += "jitpack" at "https://jitpack.io"
