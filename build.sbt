@@ -14,6 +14,4 @@ Compile / javaSource := baseDirectory.value / "src" / "main"
 javacOptions ++= Seq("-g", "-deprecation", "-encoding", "us-ascii", "--release", "11")
 
 netLogoClassManager := "org.nlogo.extensions.array.ArrayExtension"
-netLogoVersion      := "7.0.0-424b50b"
-
-resolvers += "jitpack" at "https://jitpack.io"
+netLogoVersion      := "7.0.0-2486d1e"
