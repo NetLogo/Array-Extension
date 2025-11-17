@@ -12,7 +12,7 @@ If your model already uses other extensions, then it already has an
 `extensions` line in it, so just add `array` to the list.
 
 For more information on using NetLogo extensions,
-see the [Extensions Guide](http://ccl.northwestern.edu/netlogo/docs/extensions.html)
+see the [Extensions Guide](https://docs.netlogo.org/extensions.html)
 
 ### When to Use
 
